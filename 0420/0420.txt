@@ -1,0 +1,102 @@
+
+npx create-react-app . ( bebel/webpack)
+
+npm run start
+
+
+npm run build <<  build  폴더생성 (이 폴더 안에 개발자도구 스크립트[/static/js/main.6fc76e56.chunk.js////static/js/2.65aa1cca.chunk.js] 있음)
+
+
+es6,jsx -> es5 로  babel
+js100개 >bundle.js로 webpack
+
+
+수정사항 npm run build  없이 자동업데이트 webpack-dev-server (개발시npm run build필요없음)
+개발시 build 없이 위쪽과 같이 개발후 완료시 npm run build
+
+
+
+메서드들이 객체를 가짐
+
+
+** Coundlist.js
+
+//export내용을 아래 2가지 방법으로 사용 가능
+
+// export {
+//     Countlist
+// };
+// import {Countlist} from './Countlist'
+
+// export default Countlist
+// import Countlist from './Countlist'
+
+
+// export default React;
+
+
+
+
+** App.js
+
+//Class대신 function(아래내용) 방법으로도 사용 가능
+
+// function HelloworldA(){
+//   return <div>hi</div>
+// }
+// class HelloworlddB extends Component {
+//   render(){
+//     return <div>Helloworld class</div>
+//   }
+// }
+
+
+
+
+
+
+
+
+import React, { Component } from 'react';
+import { Countlist } from './component/Countlist';
+import { Comment } from './component/Comment'
+
+
+
+
+
+
+class App extends Component {
+  constructor(props){
+    super(props);
+  }
+  render() {
+    return (
+      <div>
+       <Comment content="hi"></Comment>
+       <Countlist></Countlist>
+      </div>
+    );
+  }
+}
+
+
+
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

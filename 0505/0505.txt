@@ -1,0 +1,36 @@
+﻿Middleware : redux를 쓸때 쉽게 사용 할수 있는 여러가지 기능(추가할수 있는 기능) 콘솔처럼
+https://github.com/LogRocket/redux-logger
+
+
+promise :
+
+catch/then
+
+axios
+
+https://github.com/axios/axios
+
+npm install axios --save
+
+ npm install generator -g
+
+npm install express generator -g
+
+express .
+
+npm install
+
+
+npm install cor
+
+
+//////////////////////
+
+npm install redux-thunk  미들웨어
+
+
+
+
+
+
+

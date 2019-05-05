@@ -1,0 +1,190 @@
+npx create-react app .
+
+material-ui.com
+https://pencil.evolus.vn/
+
+
+props (= key): index 0,1 2 ,
+
+matrial-ui
+React-router
+array
+immutable(불변성)
+input
+
+자판기
+
+하나더
+
+
+개발환경 셋팅
+npx create-react-app .
+
+
+상태관리에 좋은 리덕스 -  다음시간
+promise
+axios (통신 라이브러리)
+
+
+
+/////////////////////////////////////////////////////////
+
+
+import React, {Component} from 'react';
+
+// class User extends Component{
+//   render(){
+//     const {name} = this.props; // this.props로 값을 가져 올 수 있음
+//     return <div>
+//       <h1>{name}</h1>
+//     </div>
+//   }
+// }
+
+class UserList extends Component {
+  static defaultProps = {
+    user:[
+   
+    ] // user 
+  }
+
+  shouldComponentUpdate (nextProps, nextState){  // 업데이트
+    return this.props.users !== nextProps.users; // 같은 객체 return false;
+  }
+ 
+  render(){
+    console.log("user list render")
+    const usersView = this.props.users.map((name, index)=>{
+      return <h1 key={index}> {name} </h1>//  
+  });
+
+    return <div>
+      {usersView}
+    </div>
+  }
+}
+  
+
+
+class App extends Component {
+
+   state = {
+     users:["Jack"],  
+     count:0
+   }
+
+   onClick = ()=>{
+     this.setState({
+       count: this.state.count+1
+   })
+  }
+
+   addUser = ()=>{
+    // const users = this.state.users;
+    // users.push("joi");
+
+    //this.state.users = [1,2,3,4] 메모리 주소 200
+    // const newUsers = [...this.state.users];
+    // newUsers.push("joi");
+
+    const newUsers = [...this.state.users, "Joi"];
+
+    this.setState({
+      users: newUsers
+    })
+  }   
+
+ 
+  render(){
+    console.log("app render")
+    const {users, count} = this.state;
+      return (
+        <div>
+        <UserList users = {users} />
+        <h1>{count}</h1>
+        <button onClick={this.onClick}>Test</button>
+        <button onClick={this.addUser}>add</button>
+        </div>
+     );
+  }
+
+  
+}
+
+export default App;
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////
+
+
+import React, {Component} from 'react';
+
+class Profile extends Component {
+
+  state = {
+    color:"blue"
+  }
+
+  onClick =()=>{
+    const {id, name, age} = this.props;
+
+    // const id = this.props.id;
+    // const name = this.props.name;
+    // const age = this.props.age;
+
+    this.props.onItemClick(id, name, age);
+  }
+  render(){
+    const {name, age} =this.props;
+    const {color} = this.state;
+    console.log(color)
+    return(
+      <div style = {{backgroundColor:"crimson", color:color, padding:8, margin:"16px"}} onClick={this.onClick}>
+        <h1>{name}</h1>
+        <p>{age}</p>
+      </div>
+    )
+  }
+}
+
+class App extends Component {
+
+  onItemClick =(id, name, age)=>{
+    if(id===1){
+      console.log('ssss');
+
+    }else{
+    console.log("onItemClick", id, name, age)
+    }
+  }
+
+  render(){
+      const list = [
+        { id: 1, name:"Jack", age: 20 },
+        { id: 2, name:"Jun", age: 20 },
+        { id: 3, name:"Julia", age: 20 },
+        { id: 4, name:"Jay", age: 20 }
+      ]
+
+      const listView = list.map((item,index,array)=>{
+        const {id,name,age} = item;
+      return <Profile key={id} id={id} name={name} age={age} onItemClick={this.onItemClick}/>; // 배열시 key에 id넣기 -- 추가할때
+      })
+
+      return (
+        <div>
+          {listView}
+        </div>
+      );
+  }
+}
+
+export default App;
+
+
+

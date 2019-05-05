@@ -1,0 +1,32 @@
+
+static defaultProps => 초기화 시킴 
+
+state 컴포넌트 내부에서  선언 = > 내부값 변경
+
+props 값 변경 할수 없다. 부모로 받은 값이므로/ add onclick은 App에 만든다.
+
+
+redux
+
+store / connect / action객체=값(버튼)=객체(주)=> dispatch=> reducer(함수):값을 내기 위한 작업 => state 변경 후 전체 리셋
+
+reducer(함수) = 새로운 state로 변경
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+https://github.com/reduxjs/redux
+
+index.js//////////////////////////////////////////////////////////////////////
+import { configureStore } from './redux/index' 생성 후
+import { Provider } from 'react-redux'  넣기 (하위에서 connect를 쓸 수 있음)
+
+
+npm install --save react-redux
+
+
+
+
+
+
+
+
